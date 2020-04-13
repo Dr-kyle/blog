@@ -5,8 +5,8 @@ lastmod: 2020-04-12T17:31:20+08:00
 draft: false
 keywords: []
 description: ""
-tags: []
-categories: []
+tags: ["es"]
+categories: ["elasticsearch"]
 author: ""
 
 # You can also close(false) or open(true) something for this content.
@@ -18,7 +18,7 @@ postMetaInFooter: false
 hiddenFromHomePage: false
 # You can also define another contentCopyright. e.g. contentCopyright: "This is another copyright."
 contentCopyright: false
-reward: false
+reward: true
 mathjax: false
 mathjaxEnableSingleDollar: false
 mathjaxEnableAutoNumber: false
