@@ -2,7 +2,7 @@
 title: "Analyzer"
 date: 2020-12-11T10:48:05+08:00
 lastmod: 2020-12-11T10:48:05+08:00
-draft: true
+draft: false
 keywords: []
 description: "Elasticsearch Analyzer"
 tags: []
