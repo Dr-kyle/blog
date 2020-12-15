@@ -199,7 +199,61 @@ function ThemedButton2() {
 
 ## useRef
 
+```html
+const refContainer = useRef(initialValue);
+```
+
+`useRef` 返回一个可变的 ref 对象，其 `.current` 属性被初始化为传入的参数（`initialValue`）。返回的 ref 对象在组件的整个生命周期内保持不变。
+
+```html
+import React, { useRef} from 'react';
+// 刷新页面自动聚焦 inputDom.focus()， 
+function Input() {
+	const inputRef = useRef()
+	useEffect(() => {
+		console.log('mount')
+		inputRef.current.focus()
+	}, [])
+	return <input ref={inputRef}/>
+}
+export default function RefDemo() {
+	return (
+		<div>
+			<Input />
+		</div>
+	)
+}
+```
+
+在RefDemo内聚焦.
+
+```html
+import React, { useRef } from 'react';
+// 刷新页面自动聚焦 inputDom.focus()， 在RefDemo内聚焦.
+const Input = React.forwardRef((props, ref) => {
+	// {...props}会涉及污染
+	return <input {...props} ref={inputRef}/>
+}) 
+export default function RefDemo() {
+	const inputRef = useRef()
+	useEffect(() => {
+		console.log('mount')
+		inputRef.current.focus()
+		inputRef.current.value = "hell word"
+	}, [])
+	return (
+		<div>
+			<Input placeholder="ref demo" ref={inputRef}/>
+		</div>
+	)
+}
+```
+
 
 
 ## useCallback & useMemo
+
+
+
+## [自定义Hooks](https://zh-hans.reactjs.org/docs/hooks-custom.html)
 
