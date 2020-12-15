@@ -46,6 +46,8 @@ React hooks
 
 # React Hooks
 
+可参考 https://juejin.cn/post/6906401150929469453?utm_source=gold_browser_extension
+
 ## useState
 
 ```html
@@ -59,7 +61,13 @@ export default FuncComp
 
 ## useEffect
 
-副作用，正常的一个组件应该只返回页面。componentDidUpdate() {}
+副作用，正常的一个组件应该只返回页面。
+
+- 组件每次执行render之后 useEffect 都会调用，此时相当于执行类组件的componentDidMount 和 componentDidUpdate生命周期。
+
+- 传入一个空数组[], 此时useEffect只会调用一次，相当于执行类组件的componentDidMount 和 componentWillUnmount生命周期。
+
+- 传入一个数组，其中包括变量，只有这些变量变动时，useEffect 才会执行。
 
 ```html
 import React, { useState, useEffect } from "react"
@@ -75,17 +83,22 @@ const FuncComp = (props) => {
 	}, [count])
 	// 组件挂载 卸载
 	useEffect(() => {
-		// 组件挂载时执行
+		// 组件挂载时执行 componentDidMount
 		console.log('挂载')
 		const handleClick = () => console.log('handleClick')
 		document.addEventListener('click', handleClick)
 		// 如果[] 为空相当于组件被卸载时执行的操作。 componentDidUnmount()
 		return () => {
-			// 组件卸载时执行的操作
+			// 组件卸载时执行的操作, componentWillUnmount
 			console.log('卸载')
 			document.removeEventListener('click', handleClick)
 		}
 	}, [])
+	
+	useEffect(() => {
+        //相当于componentDidUpdate
+        document.title = count;
+    })
 
 	return (<h3>Count: {count}<button onClick={() => setCount(count+1)}></button></h3>)
 }
