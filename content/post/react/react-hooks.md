@@ -2,7 +2,7 @@
 title: "React Hooks"
 date: 2020-12-15T15:33:12+08:00
 lastmod: 2020-12-15T15:33:12+08:00
-draft: true
+draft: false
 keywords: ["react","hooks"]
 description: "React Hooks study"
 tags: ["react"]
@@ -46,7 +46,7 @@ React hooks
 
 # React Hooks
 
-可参考 https://juejin.cn/post/6906401150929469453?utm_source=gold_browser_extension
+参考 https://juejin.cn/post/6906401150929469453?utm_source=gold_browser_extension
 
 ## useState
 
