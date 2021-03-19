@@ -265,8 +265,22 @@ PUT my-index-000001
                   "lowercase",
                   "english_stop"
                ]
+            },
+            "semicolon_analyzer": {
+              "type": "custom",
+              "tokenizer": "semicolon_tokenizer"
             }
          },
+         "tokenizer": {
+          "semicolon_tokenizer": 
+            {
+              "type": "char_group",
+              "tokenize_on_chars": [
+                ";"
+              ]
+            }
+          
+          },
          "filter":{
             "english_stop":{
                "type":"stop",
