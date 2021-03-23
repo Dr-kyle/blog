@@ -386,6 +386,44 @@ PUT my-index-000001
   }
 }
 
+// keyword 忽略大小写
+PUT kyle-keyword
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "keyword_analyzer": {
+          "type": "custom",
+          "tokenizer": "keyword",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      },
+      "normalizer": {
+        "my_normalizer": {
+          "type": "custom",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "groups": {
+        "type": "text",
+        "analyzer": "keyword_analyzer"
+      },
+      "email": {
+        "type": "keyword",
+        "normalizer": "my_normalizer"
+      }
+    }
+  }
+}
+
 
 POST my-index-000001/_doc
 {
