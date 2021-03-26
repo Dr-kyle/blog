@@ -265,8 +265,22 @@ PUT my-index-000001
                   "lowercase",
                   "english_stop"
                ]
+            },
+            "semicolon_analyzer": {
+              "type": "custom",
+              "tokenizer": "semicolon_tokenizer"
             }
          },
+         "tokenizer": {
+          "semicolon_tokenizer": 
+            {
+              "type": "char_group",
+              "tokenize_on_chars": [
+                ";"
+              ]
+            }
+          
+          },
          "filter":{
             "english_stop":{
                "type":"stop",
@@ -365,6 +379,44 @@ PUT my-index-000001
   "mappings": {
     "properties": {
       "foo": {
+        "type": "keyword",
+        "normalizer": "my_normalizer"
+      }
+    }
+  }
+}
+
+// keyword 忽略大小写
+PUT kyle-keyword
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "keyword_analyzer": {
+          "type": "custom",
+          "tokenizer": "keyword",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      },
+      "normalizer": {
+        "my_normalizer": {
+          "type": "custom",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "groups": {
+        "type": "text",
+        "analyzer": "keyword_analyzer"
+      },
+      "email": {
         "type": "keyword",
         "normalizer": "my_normalizer"
       }
