@@ -137,7 +137,7 @@ PUT _cluster/settings
    }
    ```
 
-3. 创建第一个index, index 格式必须满足该正则 *^.\*-\d+$* , example：logs-000001
+3. 创建第一个index,以下两种形式任选一种即可， index 格式必须满足该正则 *^.\*-\d+$* , example：logs-000001
 
    ```
    PUT kyletest-000001
@@ -148,6 +148,16 @@ PUT _cluster/settings
        }
      }
    }
+   OR
+   # PUT /<kyletest-{now/d}-1> with URI encoding:
+    PUT /%3Ckyletest-%7Bnow%2Fd%7D-1%3E 
+    {
+      "aliases": {
+        "kyle_data": {
+          "is_write_index": true
+        }
+      }
+    } 
    ```
 
 4. 检查 index生命周期策略是否正常工作
@@ -203,15 +213,14 @@ PUT _cluster/settings
    ```
    
 
-### Note
-> 以下两种创建index方法选择一种即可, 数据读取和写入都应该使用alias
+### Note(读者请忽略，我只是为了记录这个操作)
 1. 手动生成下一个index
 
    ```
    POST /kyletest/_rollover/kyletest-000003
    {
      "conditions": {
-       "max_age":   "1d"
+       "max_age":   "1m"
      }
    }
    
@@ -220,16 +229,3 @@ PUT _cluster/settings
       "index.lifecycle.indexing_complete": true
     }
    ```
-2. 按日期生成
-   ```
-   # PUT /<logs-{now/d}-1> with URI encoding:
-    PUT /%3Clogs-%7Bnow%2Fd%7D-1%3E 
-    {
-      "aliases": {
-        "logs": {
-          "is_write_index": true
-        }
-      }
-    } 
-   ```
-
