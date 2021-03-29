@@ -204,6 +204,7 @@ PUT _cluster/settings
    
 
 ### Note
+> 以下两种创建index方法选择一种即可, 数据读取和写入都应该使用alias
 1. 手动生成下一个index
 
    ```
@@ -231,3 +232,4 @@ PUT _cluster/settings
       }
     } 
    ```
+
