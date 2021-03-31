@@ -122,7 +122,7 @@ PUT _cluster/settings
         "routing" : {
           "allocation" : {
             "include" : {
-              "_ip" : "172.16.129.*"
+              "_ip" : "127.1.1.*"
             }
           }
         },
