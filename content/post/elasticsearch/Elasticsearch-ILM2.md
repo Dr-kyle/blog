@@ -571,7 +571,7 @@ PUT _ilm/policy/my_policy
    PUT _index_template/logx-template
    {
      "index_patterns" : ["logx-*"],
-     "priority" : 1,
+     "priority" : 200,
      "template": {
        "settings" : {
          "index" : {
@@ -612,7 +612,7 @@ PUT _ilm/policy/my_policy
 
    ## 通过 data stream 使用 ILM
 
-1. 创建生命周期策略
+   1. 创建生命周期策略
 
    ```shell
    
@@ -671,7 +671,7 @@ PUT _ilm/policy/my_policy
    }
    ```
 
-2. 创建索引模板，将生命周期应用到 index
+   2. 创建索引模板，将生命周期应用到 index
 
    与通过 alias 的形式区别: 在模板不需要指定 index.rollover_alias，也不需要手动创建第一个index，直接将数据写入符合模板的 index 即可，至于这个 index 在 elasticsearch 中对应几个index，我们无需关注。
 
@@ -679,7 +679,8 @@ PUT _ilm/policy/my_policy
    PUT _index_template/logx-template
    {
      "index_patterns" : ["logx-*"],
-     "priority" : 1,
+     "priority" : 200,
+     "data_stream": { },
      "template": {
        "settings" : {
          "index" : {
@@ -692,19 +693,20 @@ PUT _ilm/policy/my_policy
    }
    ```
 
-3. 创建 data stream
+   3. 创建 data stream
 
    ```shell
-   PUT /logx-business/_doc/
+   POST /logx-business/_doc/
    {
    	"@timestamp":"2021-04-13T11:04:05.000Z",
    	"message":"Loginattemptfailed"
    }
    OR 
-   PUT/_data_stream/logx-business
+   PUT /_data_stream/logx-business
    ```
 
    后续的数据读写均使用固定index:  logx-business
+
 
 ## 通过 data tiers 使用 ILM
 
@@ -783,7 +785,8 @@ PUT _ilm/policy/my_policy
    PUT _index_template/logx-template
    {
      "index_patterns" : ["logx-*"],
-     "priority" : 1,
+     "priority" : 200,
+     "data_stream": { },
      "template": {
        "settings" : {
          "index" : {
@@ -799,13 +802,13 @@ PUT _ilm/policy/my_policy
 3. 创建 data stream
 
    ```shell
-   PUT /logx-business/_doc/
+   POST /logx-business/_doc/
    {
    	"@timestamp":"2021-04-13T11:04:05.000Z",
    	"message":"Loginattemptfailed"
    }
    OR 
-   PUT/_data_stream/logx-business
+   PUT /_data_stream/logx-business
    ```
 
    
