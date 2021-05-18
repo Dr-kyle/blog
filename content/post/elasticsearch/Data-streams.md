@@ -2,7 +2,7 @@
 title: "Data Streams"
 date: 2021-04-28T15:38:36+08:00
 lastmod: 2021-04-28T15:38:36+08:00
-draft: true
+draft: false
 keywords: ["data", "streams", "data streams"]
 description: "elasticsearch data streams"
 tags: ["Elasticsearch"]
