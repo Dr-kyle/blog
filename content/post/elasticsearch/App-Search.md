@@ -2,7 +2,7 @@
 title: "App Search"
 date: 2021-04-23T16:55:41+08:00
 lastmod: 2021-04-23T16:55:41+08:00
-draft: true
+draft: false
 keywords: ["app search", "Elasticsearch"]
 description: "Elasticsearch app search"
 tags: ["Elasticsearch"]
