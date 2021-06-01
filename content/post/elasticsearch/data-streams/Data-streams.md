@@ -46,7 +46,7 @@ Elasticsearch Data Streams 介绍
 
 本文收录至《Elastic Stack 实战手册》，欢迎和我一起解锁开发者共创书籍，系统学习 Elasticsearch。
 
-![](./alibaba.png)
+![](/images/alibaba.png)
 
 # Data stream 的概念
 
