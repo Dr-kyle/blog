@@ -44,7 +44,7 @@ Elasticsearch Data Streams 介绍
 
 <!--more-->
 
-本文收录至《Elastic Stack 实战手册》，欢迎和我一起解锁开发者共创书籍，系统学习 Elasticsearch。
+本文由 赵凯 和 金多安 共同完成，已收录至《Elastic Stack 实战手册》，欢迎和我们一起解锁开发者共创书籍，系统学习 Elasticsearch。
 
 ![](/images/alibaba.png)
 
@@ -92,7 +92,7 @@ Data stream （数据流）是 Elastic Stack 7.9  的一个新的功能。Data s
 
 数据流在 Elasticsearch 集群中由一个或多个隐藏的、自动生成的后备索引组成。
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\1.png)
+![](/images/data-streams/1.png)
 
 在实际的 Elasticsearch 操作中，数据流依靠索引模板来设定数据流实体的后备索引。
 
@@ -106,11 +106,11 @@ Data stream （数据流）是 Elastic Stack 7.9  的一个新的功能。Data s
 
 Data stream 的读请求主要如下图，数据流自动将请求路由到其所有后备索引。
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\2.png)
+![](/images/data-streams/2.png)
 
 而对于写请求，数据流则将该请求自动转发给最新的后备索引。
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\3.png)
+![](/images/data-streams/3.png)
 
 对于写请求，有两点需要注意：
 
@@ -185,9 +185,9 @@ PUT /_ilm/policy/my-data-stream-policy
 
 Kibana 图形界面： Stack Management -> Index Lifecycle Policies -> Create policy
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\4.png)
+![](/images/data-streams/4.png)
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\5.png)
+![](/images/data-streams/5.png)
 
 注意：
 
@@ -197,7 +197,7 @@ Kibana 图形界面： Stack Management -> Index Lifecycle Policies -> Create po
 
 3. 新版本下，max_size 的判断并不敏感，可能是因为索引的主分片 size 大小会被 merge 后收缩，需要有一定时间的观察。如下图。测试之下，200MB之下的 max_size 会失效。建议 max_size 设置参数不要太小。
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\6.png)
+![](/images/data-streams/6.png)
 
 ### 创建索引模板
 
@@ -235,15 +235,15 @@ Kibana 界面:
 
 Stack Management -> Index Management -> Index Templates -> Create template
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\7.png)
+![](/images/data-streams/7.png)
 
 创建 template，不要创建旧版索引，并打开数据流标签
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\8.png)
+![](/images/data-streams/8.png)
 
 设置生命周期管理策略，其他设置此处省略，一直下一步至创建完成。
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\9.png)
+![](/images/data-streams/9.png)
 
 ### 创建 Data stream
 
@@ -696,7 +696,7 @@ tier_preference 的设置会有三种情况：
 
 相关的图形和命令配置如下：
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\data-streams\10.png)
+![](/images/data-streams/10.png)
 
 上图时在索引生命周期管理中选择 Data tiers节点。
 
