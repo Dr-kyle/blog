@@ -46,7 +46,7 @@ Elasticsearch Data Streams 介绍
 
 本文收录至《Elastic Stack 实战手册》，欢迎和我一起解锁开发者共创书籍，系统学习 Elasticsearch。
 
-![](E:\code\GitHub\blog\content\post\elasticsearch\images\alibaba.png)
+![](./alibaba.png)
 
 # Data stream 的概念
 
@@ -128,7 +128,7 @@ Data stream 的读请求主要如下图，数据流自动将请求路由到其�
 
 后备索引名主要依照以下格式：
 
-.ds-<data-stream>-<generation>
+.ds-\<data-stream>-\<generation>
 
 Generation 越大，后备索引包含的数据越新。 例如，web-server-logs 数据流最新的 generation 为 34。该流的最新后备索引名为 .ds-web-server-logs-000034。
 
