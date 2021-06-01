@@ -44,9 +44,9 @@ elasticsearch 生命周期介绍
 
 <!--more-->
 
-本文已收录至《Elastic Stack 实战手册》，欢迎和我一起解锁开发者共创书籍，系统学习 Elasticsearch
+本文已收录至[《Elastic Stack 实战手册》](https://developer.aliyun.com/topic/elasticstack/playbook)，欢迎和我一起解锁开发者共创书籍，系统学习 Elasticsearch
 
-[![](/images/alibaba.png)](https://developer.aliyun.com/topic/elasticstack/playbook)
+![](/images/alibaba.png)
 
 # 索引生命周期管理
 

@@ -44,9 +44,9 @@ Elasticsearch Data Streams 介绍
 
 <!--more-->
 
-本文由 赵凯 和 金多安 共同完成，已收录至《Elastic Stack 实战手册》，欢迎和我们一起解锁开发者共创书籍，系统学习 Elasticsearch。
+本文由 赵凯 和 金多安 共同完成，已收录至[《Elastic Stack 实战手册》](https://developer.aliyun.com/topic/elasticstack/playbook)，欢迎和我们一起解锁开发者共创书籍，系统学习 Elasticsearch。
 
-[![](/images/alibaba.png)](https://developer.aliyun.com/topic/elasticstack/playbook)
+![](/images/alibaba.png)
 
 # Data stream 的概念
 
