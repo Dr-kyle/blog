@@ -69,7 +69,7 @@ OAuth2 四种获取令牌的方式
 
 #### 第一步：
 
-A网站提供一个链接，用户点击后悔跳转到B网站，授权用户数据给A网站使用，下面就是A网站跳转B网站的一个示例链接
+A网站提供一个链接，用户点击后会跳转到B网站，授权用户数据给A网站使用，下面就是A网站跳转B网站的一个示例链接
 
 ```console
 https://b.com/oauth/authorize?response_type=code&client_id=CLIENT_ID&redirect_uri=CALLBACK_URL&scope=read
@@ -98,7 +98,7 @@ https://b.com/oauth/token?
 
 B 网站收到请求以后，就会颁发令牌，做法是向`redirect_uri`指定的网址，发送一段JSON数据。
 
-```
+```json
 {
 	// 令牌
   "access_token":"ACCESS_TOKEN",
@@ -143,7 +143,7 @@ https://a.com/callback#token=ACCESS_TOKEN
 
 ## 三 密码式
 
-如果高度新人某个应用，用户可以直接把用户名和密码，直接告诉该应用。该应用就会使用你的密码，申请令牌，这种方式称为 密码式。
+如果高度信任某个应用，用户可以直接把用户名和密码，直接告诉该应用。该应用就会使用你的密码，申请令牌，这种方式称为 密码式。
 
 #### 第一步：
 
