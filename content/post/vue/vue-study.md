@@ -2,7 +2,7 @@
 title: "Vue Study"
 date: 2021-04-28T22:06:57+08:00
 lastmod: 2021-04-28T22:06:57+08:00
-draft: true
+draft: false
 keywords: ["vue"]
 description: "vue study"
 tags: ["vue"]
