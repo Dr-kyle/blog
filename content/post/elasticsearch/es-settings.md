@@ -162,31 +162,31 @@ PUT my-index-000002
       }
     }
        
-   ```
-    使用以下方式会更好
-    
-    
-```
-    PUT index/_doc/1
-    {
-      "designation": "spoon",
-      "price": 13,
-      "price_range": "10-100"
-    }
-    POST index/_search
-    {
-      "aggs": {
-        "price_ranges": {
-          "terms": {
-            "field": "price_range"
-          }
-        }
-      }
-    }
     ```
     
-
+    使用以下方式会更好
     
+    ```
+    PUT index/_doc/1
+        {
+          "designation": "spoon",
+          "price": 13,
+          "price_range": "10-100"
+        }
+        POST index/_search
+        {
+          "aggs": {
+            "price_ranges": {
+              "terms": {
+                "field": "price_range"
+              }
+            }
+          }
+        }
+    ```
+    
+    
+
 14. 优先使用 keyword 类型
 
     `term`对`keyword`字段的查询搜索通常比`term`对数字字段的搜索快
@@ -223,6 +223,7 @@ PUT my-index-000002
     ```
 
     可以使用如下查询代替
+    
 
     ```sh
     GET index/_search
@@ -247,7 +248,7 @@ PUT my-index-000002
 
 18. 预热全局序数
 
-    [全局序数](https://www.elastic.co/guide/en/elasticsearch/reference/current/eager-global-ordinals.html)是一种用于优化聚合性能的数据结构，它们被延迟计算并作为[字段数据缓存的](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html)一部分存储在 JVM 堆中。对于大量用于分桶聚合的字段，您可以告诉 Elasticsearch 在收到请求之前构造和缓存全局序数。这应该小心完成，因为它会增加堆使用量，并使[刷新](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-refresh.html) 需要更长的时间
+    [全局序数](https://www.elastic.co/guide/en/elasticsearch/reference/current/eager-global-ordinals.html)是一种用于优化聚合性能的数据结构，它们被延迟计算并作为[字段数据缓存的](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html)一部分存储在 JVM 堆中。对于大量用于分桶聚合的字段，您可以告诉 Elasticsearch 在收到请求之前构造和缓存全局序数。这应该小心完成，因为它会增加堆使用量，并使[刷新](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-refresh.html) 需要更长的时间, 经常需要根据某字段聚合 可以开启该设置。
 
     ```sh
     PUT index
