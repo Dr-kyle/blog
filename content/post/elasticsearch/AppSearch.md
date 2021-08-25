@@ -2,11 +2,11 @@
 title: "AppSearch"
 date: 2021-08-24T16:23:34+08:00
 lastmod: 2021-08-24T16:23:34+08:00
-draft: true
-keywords: []
-description: ""
-tags: []
-categories: []
+draft: false
+keywords: ["elasticsearch app search"]
+description: "elasticsearch app search"
+tags: ["elasticsearch"]
+categories: ["elasticsearch"]
 author: "Kyle Zhao"
 
 # You can also close(false) or open(true) something for this content.
