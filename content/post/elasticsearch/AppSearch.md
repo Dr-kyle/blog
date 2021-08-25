@@ -50,8 +50,8 @@ Elastic App Search 是  Elastic Enterprise Search 的一部分，和 Elasticsear
 
 App Search 可以轻松实现高级搜索，通过完善的 API 集合以及直观的仪表板，Elastic App Search 为您的公司网站、电子商务网站或应用带来了 Elasticsearch 的强大功能。获得无缝的可扩展性、可调的相关性控制、详尽的文档、经过良好维护的客户端和强大的分析能力，为您的客户打造领先的搜索体验。
 
-![](/images/app-search/jiagou1.png.png)
-![](/images/app-search/jiagou2.png.png)
+![](/images/app-search/jiagou1.png)
+![](/images/app-search/jiagou2.png)
 
 
 ## 亮点
