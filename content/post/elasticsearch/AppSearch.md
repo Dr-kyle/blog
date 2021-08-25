@@ -48,9 +48,11 @@ App Search instruction
 
 Elastic App Search 是  Elastic Enterprise Search 的一部分，和 Elasticsearch 一起使用，是免费使用的。
 
-![](https://play.vidyard.com/zKjiM8zVMi13fnecZHAFhy.jpg)
-
 App Search 可以轻松实现高级搜索，通过完善的 API 集合以及直观的仪表板，Elastic App Search 为您的公司网站、电子商务网站或应用带来了 Elasticsearch 的强大功能。获得无缝的可扩展性、可调的相关性控制、详尽的文档、经过良好维护的客户端和强大的分析能力，为您的客户打造领先的搜索体验。
+
+![](/images/app-search/jiagou1.png.png)
+![](/images/app-search/jiagou2.png.png)
+
 
 ## 亮点
 
@@ -178,18 +180,20 @@ App Search 可以轻松实现高级搜索，通过完善的 API 集合以及直�
    ```
 
 4. 启动成功后，可以通过 kibana -> Enterprise Search -> App Search 访问，或者访问单独的 UI ， [http://localhost:3002](http://localhost:3002/)
-
+![](/images/app-search/dashboard.png)
    
 
 ## 使用
 
 1. 创建 Engine
 
-   每个 Engine 在 Elasticsearch 中都会有对应的一个 index
+   点击首页 Create an Engine 输入 Engines name 选择语言进行创建，每个 Engine 最终都会在 Elasticsearch 中有对应的一个 index。
 
-   
+   ![](/images/app-search/index.png)
 
 2. 导入数据
+
+   ![](/images/app-search/import-data.png)
 
    数据导入方式有以下四种
 
@@ -209,7 +213,99 @@ App Search 可以轻松实现高级搜索，通过完善的 API 集合以及直�
 
      使用 Rest API 写入数据
 
-   我们根据场景选择不同的数据导入方式，以下以 Rest API 举例
+   我们根据场景选择不同的数据导入方式，以下以 Rest API 举例，如果不指定id，会自动生成
+   
+   ```sh
+   curl -X POST 'http://localhost:3002/api/as/v1/engines/kyle-test-engine/documents' \
+     -H 'Content-Type: application/json' \
+     -H 'Authorization: Bearer private-q849axzc6sv37qf83oxbn32r' \
+     -d '[
+           {
+             "id": "park_rocky-mountain",
+             "title": "Rocky Mountain",
+             "description": "Bisected north to south by the Continental Divide, this portion of the Rockies has ecosystems varying from over 150 riparian lakes to montane and subalpine forests to treeless alpine tundra. Wildlife including mule deer, bighorn sheep, black bears, and cougars inhabit its igneous mountains and glacial valleys. Longs Peak, a classic Colorado fourteener, and the scenic Bear Lake are popular destinations, as well as the historic Trail Ridge Road, which reaches an elevation of more than 12,000 feet (3,700 m).",
+             "nps_link": "https://www.nps.gov/romo/index.htm",
+             "states": [
+               "Colorado"
+             ],
+             "visitors": 4517585,
+             "world_heritage_site": false,
+             "location": "40.4,-105.58",
+             "acres": 265795.2,
+             "square_km": 1075.6,
+             "date_established": "1915-01-26T06:00:00Z"
+           },
+           {
+             "id": "park_saguaro",
+             "title": "Saguaro",
+             "description": "Split into the separate Rincon Mountain and Tucson Mountain districts, this park is evidence that the dry Sonoran Desert is still home to a great variety of life spanning six biotic communities. Beyond the namesake giant saguaro cacti, there are barrel cacti, chollas, and prickly pears, as well as lesser long-nosed bats, spotted owls, and javelinas.",
+             "nps_link": "https://www.nps.gov/sagu/index.htm",
+             "states": [
+               "Arizona"
+             ],
+             "visitors": 820426,
+             "world_heritage_site": false,
+             "location": "32.25,-110.5",
+             "acres": 91715.72,
+             "square_km": 371.2,
+             "date_established": "1994-10-14T05:00:00Z"
+           }
+         ]'
+   # [
+   #   {
+   #     "id": "park_rocky-mountain",
+   #     "errors": []
+   #   },
+   #   {
+   #     "id": "park_saguaro",
+   #     "errors": []
+   #   }
+   # ]
+   ```
+   
+3. 点击 Documents 开始搜索，可以通过 Customize 设置过滤字段和排序字段。
+
+   ![](/images/app-search/cusomteize-filters-sort.png)
+
+4. Reference UI 快速创建搜索界面
+
+   设置过滤、排序等字段。
+
+   ![](/images/app-search/Reference UI-1.png)
+
+   搜索页面，可以点击 Download ZIP Package 下载代码解压，然后执行 `npm install`, `npm start` 就可以有单独搜索的页面。
+
+   ![](/images/app-search/Reference UI-2.png)
+
+5. 可以通过 UI Schema 调整字段的类型，默认 text，目前仅支持 text、number、date、geolocation 四种类型
+
+   ![](/images/app-search/change-schema.png)
+
+6. Synonyms 同义词设置
+
+   ![](/images/app-search/Synonyms.png)
+
+7. Curations 结果设置
+
+   Curations 允许手动提升或隐藏特定查询的文档，可用于增加每次点击的搜索比率或执行推广特定内容的活动。
+
+   ![](/images/app-search/Curations.png)
+
+8. 相关性得分设置
+
+   ![](/images/app-search/Relevance.png)
+
+9. 结果设置
+
+   ![](/images/app-search/result.png)
+
+10. 通过 Overview 和 Analytics 可以查看到所有 API 的使用情况，方便定义问题及优化。
+
+    ![](/images/app-search/Overview.png)
+
+    ![](/images/app-search/analytics.png)
+
+   
 
    
 
