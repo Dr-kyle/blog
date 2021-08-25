@@ -271,11 +271,11 @@ App Search 可以轻松实现高级搜索，通过完善的 API 集合以及直�
 
    设置过滤、排序等字段。
 
-   ![](/images/app-search/Reference UI-1.png)
+   ![](/images/app-search/ReferenceUI-1.png)
 
    搜索页面，可以点击 Download ZIP Package 下载代码解压，然后执行 `npm install`, `npm start` 就可以有单独搜索的页面。
 
-   ![](/images/app-search/Reference UI-2.png)
+   ![](/images/app-search/ReferenceUI-2.png)
 
 5. 可以通过 UI Schema 调整字段的类型，默认 text，目前仅支持 text、number、date、geolocation 四种类型
 
