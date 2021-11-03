@@ -145,11 +145,12 @@ ADD config/ /usr/share/logstash/config/
 
 [logstash.yml](https://www.elastic.co/guide/en/logstash/current/logstash-settings-file.html)
 
-| **Environment Variable** | **Logstash Setting** |
-| ------------------------ | -------------------- |
-| PIPELINE_WORKERS         | pipeline.workers     |
-| LOG_LEVEL                | log.level            |
-| MONITORING_ENABLED       | monitoring.enabled   |
+| **Environment Variable**                                     | **Logstash Setting**     |
+| ------------------------------------------------------------ | ------------------------ |
+| PIPELINE_WORKERS                                             | pipeline.workers         |
+| LOG_LEVEL                                                    | log.level                |
+| MONITORING_ENABLED                                           | monitoring.enabled       |
+| [XPACK_MONITORING_ENABLED](https://www.elastic.co/guide/en/logstash/7.15/monitoring-internal-collection-legacy.html) | xpack.monitoring.enabled |
 
 使用 docker 时 `logstash.yml` 的默认值
 
