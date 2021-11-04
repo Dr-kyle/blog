@@ -40,12 +40,72 @@ sequenceDiagrams:
 
 ---
 
-elasticsearch 配置文件
+elasticsearch 配置
 
 <!--more-->
 
+# important system configuration
+
+`firewall`
+
+根据需要设置防火墙，此示例直接关闭
+
+```
+# 停止
+sudo systemctl stop firewalld.service
+# 禁止开机启动
+sudo systemctl disable firewalld.service
+```
+
+`ulimit`
+
+```
+sudo ulimit -n 65535
+```
+
+`/etc/security/limits.conf`
+
+```
+*  -  nofile  65535
+* soft memlock unlimited
+* hard memlock unlimited
+* hard nproc unlimited
+* soft nproc unlimited
+```
+
+`Disable all swap files`
+
+```
+sudo swapoff -a
+# sudo vim /etc/fstab  注释掉包含 swap 的行
+```
+
+`swappiness`
+
+```
+sudo sysctl -w vm.swappiness=1
+sudo sysctl -w vm.max_map_count=262144
+sudo vim /etc/sysctl.conf
+vm.max_map_count=262144
+vm.swappiness=1
+```
+
+
+
+```
+sudo vim /etc/systemd/system.conf
+DefaultLimitNOFILE=65536
+DefaultLimitNPROC=infinity
+DefaultLimitMEMLOCK=infinity
+```
+
+重启机器。
+
+# elasticsearch.yml
+
 ```yaml
 # 可以动态调整的配置，推荐使用 _cluster/settings 进行设置
+bootstrap.memory_lock: true
 # PATH
 path:
   # 数据目录，不要在目录上运行病毒扫描程序
