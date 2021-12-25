@@ -52,7 +52,63 @@ Vue Study
    </router-link>
    ```
 
-2. Vue 父组件调用子组件方法
+2. 传参
+
+   ```
+   // 
+   this.$router.push({
+   	path: `/describe/${id}`,
+   })
+   // 路由配置
+   {
+        path: '/describe/:id',
+        name: 'Describe',
+        component: Describe
+   }
+   // 取值
+   this.$route.params.id
+   ```
+
+   ```
+   // 通过路由属性中的name来确定匹配的路由，通过params来传递参数
+   this.$router.push({
+      name: 'Describe',
+      params: {
+       id: id
+     }
+   })
+   // :/id 也可以不添加
+   {
+        path: '/describe',
+        name: 'Describe',
+        component: Describe
+    }
+    // 取值
+    this.$route.params.id
+   ```
+
+   ```
+   // 使用path来匹配路由，然后通过query来传递参数  ?id=id
+   this.$router.push({
+       path: '/describe',
+       query: {
+        id: id
+      }
+   })
+   
+   {
+        path: '/describe',
+        name: 'Describe',
+        component: Describe
+   }
+   
+   this.$route.query.id
+   
+   ```
+
+   
+
+3. Vue 父组件调用子组件方法
 
    ```html
    <template>
@@ -73,10 +129,11 @@ Vue Study
    </script>
    ```
 
-3. 子组件调用父组件的方法
+4. 子组件调用父组件的方法
 
    - 使用  `$parent.xxx` 调用
-   
+
+
   ```html
      <template>
          <div>
@@ -93,20 +150,20 @@ Vue Study
              },
          }
      </script>
-     ```
-   
+  ```
+
    - 使用`$emit`向父组件触发一个事件，父组件监听这个事件
-   
+
   ```html
      <!-- Parent -->
      <songCompoent @fatherFn="fatherFnTwo"></songCompoent>
      
      <!-- Child -->
      this.$emit('fatherFn')
-     ```
-   
+  ```
+
    - 直接传入子组件调用
 
      
-   
+
    
