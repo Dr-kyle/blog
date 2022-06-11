@@ -102,7 +102,7 @@ col-md-auto 根据内容自动调整宽度
     </div>
     <div class="col order-4">
       Second in DOM, unordered
-    </div>
+   1150 </div>
     <div class="col order-first">
       Third in DOM, ordered first
     </div>
@@ -127,7 +127,7 @@ h-25：25%的高度
 
 mw-100： max-width: 100%
 
-max-height：max-height: 100%
+mh-100：max-height: 100%
 
 相对于视口 viewport 的尺寸
 
